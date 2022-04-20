@@ -13,7 +13,7 @@ const SignUp = ({ setRegistered, name, setName, url, setUrl }) => {
     submitButton: `bg-[#3a3b3d] text-white font-semibold px-4 py-2 hover:px-6 rounded-full cursor-pointer duration-[0.2s] ease-in-out`,
   }
 
-  const createUser = async (event) => {
+  const createUser = async event => {
     setRegistered(true)
 
     const resp = await window.solana.connect()
@@ -28,10 +28,9 @@ const SignUp = ({ setRegistered, name, setName, url, setUrl }) => {
         body: JSON.stringify({
           userWalletAddress: walletAddress,
           name: name,
-          profileImage: event.target[1].value,
+          profileImage: event.target.url.value,
         }),
       })
-      console.log(event)
     } catch (error) {
       console.error(error)
     }
@@ -40,18 +39,18 @@ const SignUp = ({ setRegistered, name, setName, url, setUrl }) => {
   const generateRandomProfileImageUrl = () =>
     setUrl(
       `https://avatars.dicebear.com/api/pixel-art-neutral/${Math.floor(
-        Math.random() * 100
-      )}.svg`
+        Math.random() * 100,
+      )}.svg`,
     )
 
   return (
     <div className={style.wrapper}>
       <div className={style.logoContainer}>
         <Image
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png"
+          src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png'
           height={40}
           width={40}
-          alt="facebook logo"
+          alt='facebook logo'
         />
       </div>
       <div className={style.title}>Please sign up to use Facebook</div>
@@ -61,7 +60,7 @@ const SignUp = ({ setRegistered, name, setName, url, setUrl }) => {
           <div className={style.inputContainer}>
             <input
               value={name}
-              onChange={(event) => setName(event.target.value)}
+              onChange={event => setName(event.target.value)}
               required
               className={style.inputField}
             />
@@ -72,7 +71,7 @@ const SignUp = ({ setRegistered, name, setName, url, setUrl }) => {
           <div className={style.inputContainer}>
             <input
               value={url}
-              onChange={(event) => setUrl(event.target.value)}
+              onChange={event => setUrl(event.target.value)}
               required
               className={style.inputField}
             />
@@ -84,7 +83,7 @@ const SignUp = ({ setRegistered, name, setName, url, setUrl }) => {
             </div>
           </div>
         </div>
-        <button className={style.submitButton} type="submit">
+        <button className={style.submitButton} type='submit'>
           Sign Up
         </button>
       </form>

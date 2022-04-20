@@ -28,10 +28,11 @@ export default function Home() {
 
   const wallet = useWallet()
 
-  const requestUsersData = async (activeAccount) => {
+  const requestUsersData = async activeAccount => {
     try {
       const response = await fetch(`/api/fetchUsers`)
       const data = await response.json()
+
       setUsers(data.data)
     } catch (error) {
       console.error(error)
