@@ -86,7 +86,7 @@ const Post = ({ post, viewDetail, createComment, name, url }) => {
           <FaRegCommentAlt />
           <div className={style.reactionsText}>Comment</div>
         </div>
-        <div className={style.reactionItem}>
+        <div className={style.reactionItem} onClick={postDetail}>
           <FiRefreshCw className={style.refreshIcon} />
           <div className={style.reactionsText}>Refresh Comments</div>
         </div>
