@@ -170,14 +170,7 @@ const Feed = ({ connected, name, url }) => {
 
       await program.account.commentAccount.fetch(commentSigner)
     } catch (error) {
-      await program.rpc.createComment(text, name, url, {
-        accounts: {
-          post: postSigner,
-          comment: commentSigner,
-          authority: wallet.publicKey,
-          ...defaultAccounts,
-        },
-      })
+    
       console.error(error)
     }
   }
