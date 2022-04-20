@@ -171,7 +171,7 @@ const Feed = ({ connected, name, url }) => {
       await program.account.commentAccount.fetch(commentSigner)
     } catch (error) {
     
-      console.error(error)
+      console.error("hello"+error)
     }
   }
 
